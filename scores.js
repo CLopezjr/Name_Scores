@@ -12,5 +12,22 @@ function sortNames(){
     return names;
 }
 
+function nameScore(name){
+    var sum;
+    for(let i = 0;i < name.length; i++){
+        sum += name[i] - 'A' + 1;
+    }
+    return sum;
+}
+
+function totalScore(sortedNames){
+    let sum = 0;
+
+    for(let i = 0; i < sortedNames.length; i++){
+        sum += nameScore(sortedNames) * i + 1; 
+    }
+    console.log(sum);
+}
+
 let sortedNames = sortNames();
-console.log(sortedNames);
+totalScore(sortNames);
